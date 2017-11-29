@@ -17,10 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet weak var levelSlider: UISlider!
     @IBOutlet weak var capturedSwitch: UISwitch!
 
+    @IBOutlet var datePicker: UIDatePicker!
+
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        nameTextField.inputView = datePicker
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +34,14 @@ class ViewController: UIViewController {
 
     //MARK: - Actions
 
+    @IBAction func datePickerValueChanged(_ sender: UIDatePicker) {
+
+        nameTextField.text = "\(datePicker.date)"
+    }
+
     @IBAction func save(_ sender: Any) {
     }
-    
+
     @IBAction func takePhoto(_ sender: Any) {
     }
 }
