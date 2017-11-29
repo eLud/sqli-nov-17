@@ -230,29 +230,7 @@ if let texteCount = tf.text?.count {
 }
 
 
-struct Dog {
 
-    var age = 0
-    private let nom = "Médor"
-
-    func run() {
-
-    }
-
-    private func qqChose() {
-
-    }
-
-    static func aStaticFunc() {
-
-    }
-}
-
-
-let medor = Dog()
-let brutus = Dog()
-
-medor == brutus
 
 
 
