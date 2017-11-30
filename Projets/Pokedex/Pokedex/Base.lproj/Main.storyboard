@@ -42,7 +42,7 @@
                                     <segment title="Autre"/>
                                 </segments>
                             </segmentedControl>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="rVG-9d-Ik3">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="5" minValue="1" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="rVG-9d-Ik3">
                                 <rect key="frame" x="62" y="179" width="277" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>

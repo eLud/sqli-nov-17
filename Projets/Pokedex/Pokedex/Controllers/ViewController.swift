@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var photoButton: UIButton!
     @IBOutlet weak var levelLabel: UILabel!
 
-    //MARK: Instance properties
+    //MARK: - Instance properties
     var manager = PokeManager()
 
     //MARK: - Lifecycle
@@ -38,7 +38,11 @@ class ViewController: UIViewController {
 
     @IBAction func levelSliderValueChanged(_ sender: UISlider) {
         let rounded = round(sender.value)
+
+        //Déplacement cranté
         sender.value = rounded
+
+        //Valeur dans le label
         levelLabel.text = "\(Int(sender.value))"
     }
 
@@ -48,6 +52,8 @@ class ViewController: UIViewController {
             nameTextField.backgroundColor = UIColor.red
             return
         }
+        nameTextField.backgroundColor = UIColor.white
+
         let type = selectedType()
         let level = Int(round(levelSlider.value))
         let captured = capturedSwitch.isOn
@@ -55,9 +61,12 @@ class ViewController: UIViewController {
         let newPokemon = Pokemon(name: name, level: level, type: type, captured: captured)
 
         manager.add(newPokemon)
+
+        print(manager.list())
     }
     
     @IBAction func takePhoto(_ sender: Any) {
+
     }
 
     //MARK: - Private methods
@@ -65,6 +74,7 @@ class ViewController: UIViewController {
     private func configureUI() {
         configureSegmentedControl()
         photoButton.setTitle("📷", for: .normal)
+        levelLabel.text = "\(Int(levelSlider.value))"
     }
 
     private func configureSegmentedControl() {
@@ -80,6 +90,18 @@ class ViewController: UIViewController {
         guard let type = Pokemon.PokemonType(rawValue: index) else { fatalError() }
         return type
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
