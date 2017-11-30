@@ -119,6 +119,78 @@ félix2.age
 
 félix.humanAge = 14
 
+enum TransportStatus {
+    case onTime
+    case delayed (delay: Int, reason: String)
+    case cancelled
+    case unknown
+}
+
+var status = TransportStatus.onTime
+status = .delayed(delay: 5, reason: "Fog")
+
+struct Flight {
+    var flightNumber: String
+    var status: TransportStatus
+}
+
+var af84 = Flight(flightNumber: "AF84", status: .onTime)
+af84.status = .delayed(delay: 4, reason: "Dodo")
+
+
+switch af84.status {
+
+case .delayed (let associated) where associated.delay < 5:
+    fallthrough
+case .onTime:
+    print("Plane onTime")
+case .delayed (let associated):
+    print("Plane delayed by \(associated.delay) minutes because of \(associated.reason)")
+case .cancelled:
+    ()
+case .unknown:
+    ()
+}
+
+enum TransportType: Int {
+    case plane
+    case car
+    case train
+
+    func emojiValue() -> String {
+        switch self {
+        case .plane:
+            return "✈️"
+        case .car:
+            return "🚗"
+        case .train:
+            return "🚆"
+        }
+    }
+
+    init?(emoji: String) {
+        switch emoji {
+        case "✈️", "🛫", "🛩", "plane":
+            self = .plane
+        case "🚗":
+            self = .car
+        case "🚆":
+            self = .train
+        default:
+        return nil
+        }
+    }
+}
+
+let transport = TransportType.car
+transport.emojiValue()
+
+let t2 = TransportType(emoji: "🚢")
+
+
+
+
+
 
 
 
