@@ -15,6 +15,7 @@ class PokemonTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         manager.add(Pokemon(name: "test", level: 0, type: .fire, captured: false))
     }
 

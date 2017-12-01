@@ -15,6 +15,10 @@ class PokeManager {
     func add(_ p: Pokemon) {
         if !pokemons.contains(p) {
             pokemons.append(p)
+
+            //Emmettre une notif
+            let notCenter = NotificationCenter.default
+            notCenter.post(name: Notification.Name("modelUpdated"), object: self, userInfo: nil)
         }
     }
 
@@ -24,7 +28,14 @@ class PokeManager {
 
     func remove(_ p: Pokemon) -> Pokemon? {
         guard let index = pokemons.index(of: p) else { return nil }
-        return pokemons.remove(at: index)
+
+        let removed = pokemons.remove(at: index)
+
+        //Emmettre une notif
+        let notCenter = NotificationCenter.default
+        notCenter.post(name: Notification.Name("modelUpdated"), object: self, userInfo: nil)
+
+        return removed
     }
 
 }
