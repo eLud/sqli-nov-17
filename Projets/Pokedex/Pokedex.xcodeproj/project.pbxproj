@@ -15,6 +15,7 @@
 		33D4A76D1FCFF930002F4BF2 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A76C1FCFF930002F4BF2 /* Pokemon.swift */; };
 		33D4A76F1FD01653002F4BF2 /* PokeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33D4A76E1FD01653002F4BF2 /* PokeManager.swift */; };
 		33DAC24C1FD165CF0013C206 /* PokemonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DAC24B1FD165CF0013C206 /* PokemonTableViewController.swift */; };
+		33DAC24E1FD198640013C206 /* PokeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33DAC24D1FD198640013C206 /* PokeDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		33D4A76C1FCFF930002F4BF2 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		33D4A76E1FD01653002F4BF2 /* PokeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeManager.swift; sourceTree = "<group>"; };
 		33DAC24B1FD165CF0013C206 /* PokemonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewController.swift; sourceTree = "<group>"; };
+		33DAC24D1FD198640013C206 /* PokeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokeDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			children = (
 				33D4A7581FCF10BA002F4BF2 /* ViewController.swift */,
 				33DAC24B1FD165CF0013C206 /* PokemonTableViewController.swift */,
+				33DAC24D1FD198640013C206 /* PokeDetailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				33D4A76D1FCFF930002F4BF2 /* Pokemon.swift in Sources */,
 				33DAC24C1FD165CF0013C206 /* PokemonTableViewController.swift in Sources */,
 				33D4A7591FCF10BA002F4BF2 /* ViewController.swift in Sources */,
+				33DAC24E1FD198640013C206 /* PokeDetailsViewController.swift in Sources */,
 				33D4A7571FCF10BA002F4BF2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

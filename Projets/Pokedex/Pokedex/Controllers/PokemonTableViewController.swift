@@ -120,6 +120,17 @@ class PokemonTableViewController: UITableViewController {
 
             guard let destination = segue.destination as? ViewController else { return }
             destination.manager = self.manager
+        } else if segue.identifier == "showDetails" {
+
+            //Identifier le pokemon
+            guard let cell = sender as? UITableViewCell else { return }
+            guard let indexPath = tableView.indexPath(for: cell) else { return }
+            let pokemon = manager.list()[indexPath.row]
+
+            //Passer le pokemon
+            guard let destination = segue.destination as? PokeDetailsViewController else { return }
+            destination.pokemonToDisplay = pokemon
+
         }
     }
 
