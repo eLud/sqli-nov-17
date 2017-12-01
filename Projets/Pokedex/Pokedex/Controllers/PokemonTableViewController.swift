@@ -10,11 +10,13 @@ import UIKit
 
 class PokemonTableViewController: UITableViewController {
 
-    var manager = PokeManager()
+    var manager = PokeManager.manager()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let prefs = UserDefaults.standard
+        prefs.set("Ludovic", forKey: "firstName")
 
         manager.add(Pokemon(name: "test", level: 0, type: .fire, captured: false))
 

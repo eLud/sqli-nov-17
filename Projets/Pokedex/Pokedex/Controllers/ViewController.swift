@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var levelLabel: UILabel!
 
     //MARK: - Instance properties
-    var manager = PokeManager()
+    var manager: PokeManager!
 
     //MARK: - Lifecycle
     override func viewDidLoad() {

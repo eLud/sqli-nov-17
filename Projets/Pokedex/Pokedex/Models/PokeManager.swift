@@ -10,7 +10,22 @@ import Foundation
 
 class PokeManager: Codable {
 
-    private var pokemons: [Pokemon] = []
+    private var pokemons: [Pokemon]
+
+    private init() {
+        pokemons = []
+    }
+
+    static func manager() -> PokeManager {
+
+        var documentUrl = documentDirectoryURL()
+        documentUrl.appendPathComponent("pokemon.json")
+        if let data = try? Data(contentsOf: documentUrl),
+            let manager = parse(data: data) {
+            return manager
+        }
+        return PokeManager()
+    }
 
     func add(_ p: Pokemon) {
         if !pokemons.contains(p) {
@@ -38,6 +53,8 @@ class PokeManager: Codable {
         let notCenter = NotificationCenter.default
         notCenter.post(name: Notification.Name("modelUpdated"), object: self, userInfo: nil)
 
+        save()
+        
         return removed
     }
 
@@ -57,21 +74,32 @@ class PokeManager: Codable {
         if let data = try? encoder.encode(self) {
             print(data)
 
-            let str = String(data: data, encoding: .utf8)
+            var documentUrl = PokeManager.documentDirectoryURL()
+            documentUrl.appendPathComponent("pokemon.json")
 
-            print(str!)
+            print(documentUrl)
 
-            parse(data: data)
+            try? data.write(to: documentUrl)
         }
     }
 
-    func parse(data: Data) {
+    static func parse(data: Data) -> PokeManager? {
 
         let decoder = JSONDecoder()
         if let manager = try? decoder.decode(PokeManager.self, from: data) {
-
-            print(manager.list())
+            return manager
         }
+
+        return nil
+    }
+
+    static func documentDirectoryURL() -> URL {
+
+        let fm = FileManager.default
+        let url = fm.urls(for: .documentDirectory, in: .userDomainMask)
+        guard let first = url.first else { fatalError() }
+
+        return first
     }
 
 }
