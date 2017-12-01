@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pokemon {
+struct Pokemon: Codable {
 
     init(name: String, level: Int, type: PokemonType, captured: Bool, captureDate: Date? = nil, pictureURL: URL? = nil) {
 
@@ -24,7 +24,7 @@ struct Pokemon {
         self.pictureURL = pictureURL
     }
 
-    enum PokemonType: Int {
+    enum PokemonType: Int, Codable {
         case water
         case fire
         case ice

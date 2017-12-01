@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PokeManager {
+class PokeManager: Codable {
 
     private var pokemons: [Pokemon] = []
 
@@ -19,6 +19,8 @@ class PokeManager {
             //Emmettre une notif
             let notCenter = NotificationCenter.default
             notCenter.post(name: Notification.Name("modelUpdated"), object: self, userInfo: nil)
+
+            save()
         }
     }
 
@@ -37,6 +39,39 @@ class PokeManager {
         notCenter.post(name: Notification.Name("modelUpdated"), object: self, userInfo: nil)
 
         return removed
+    }
+
+    func save() {
+
+        let encoder = JSONEncoder()
+
+        //Traiter completement l'erreur
+//        do {
+//            let data = try encoder.encode(self)
+//        } catch {
+//            print(error.localizedDescription)
+//        }
+
+//        let data = try! encoder.encode(self)
+
+        if let data = try? encoder.encode(self) {
+            print(data)
+
+            let str = String(data: data, encoding: .utf8)
+
+            print(str!)
+
+            parse(data: data)
+        }
+    }
+
+    func parse(data: Data) {
+
+        let decoder = JSONDecoder()
+        if let manager = try? decoder.decode(PokeManager.self, from: data) {
+
+            print(manager.list())
+        }
     }
 
 }
