@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Pokemon: Equatable {
+struct Pokemon {
 
     init(name: String, level: Int, type: PokemonType, captured: Bool, captureDate: Date? = nil, pictureURL: URL? = nil) {
 
@@ -23,15 +23,6 @@ struct Pokemon: Equatable {
 
         self.pictureURL = pictureURL
     }
-
-    static func ==(lhs: Pokemon, rhs: Pokemon) -> Bool {
-        if lhs.name == rhs.name && lhs.level == rhs.level && lhs.type == rhs.type {
-            return true
-        }
-
-        return false
-    }
-
 
     enum PokemonType: Int {
         case water
@@ -72,3 +63,33 @@ struct Pokemon: Equatable {
     private(set) var captureDate: Date?
     var pictureURL: URL?
 }
+
+extension Pokemon: Equatable  {
+    static func ==(lhs: Pokemon, rhs: Pokemon) -> Bool {
+        if lhs.name == rhs.name && lhs.level == rhs.level && lhs.type == rhs.type {
+            return true
+        }
+
+        return false
+    }
+}
+
+extension Pokemon: CustomStringConvertible {
+    var description: String {
+        return "Je suis un Pokemon qui s'appelle \(name)"
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

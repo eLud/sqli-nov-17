@@ -188,6 +188,76 @@ transport.emojiValue()
 let t2 = TransportType(emoji: "🚢")
 
 
+protocol Bestiole {
+
+    var name: String { get set }
+    func mange()
+}
+
+extension Bestiole {
+
+    func mange() {
+        print("Je mange")
+    }
+
+    func youhou() {
+        mange()
+        print("Youhou")
+    }
+}
+
+struct Pokemon: Bestiole {
+
+    var name: String
+
+    func attaque() {
+
+    }
+}
+
+class Caniche: Bestiole {
+
+    var name: String = ""
+
+    func donneLaPate() {
+
+    }
+}
+
+struct Pigeon: Bestiole, Flying {
+
+    var name: String
+
+    func mange() {
+        print("Je picorre")
+    }
+
+    func fly() {
+
+    }
+}
+
+let tabBestiole: [Bestiole] = []
+
+for b in tabBestiole {
+
+
+    if let c = b as? Caniche {
+        c.donneLaPate()
+    } else if let c = b as? Pokemon {
+        c.attaque()
+    }
+}
+func promener(_ b: Bestiole) {
+    print("Je promene \(b.name)")
+}
+
+
+
+
+
+
+
 
 
 

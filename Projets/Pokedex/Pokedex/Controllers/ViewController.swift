@@ -74,7 +74,12 @@ class ViewController: UIViewController {
     private func configureUI() {
         configureSegmentedControl()
         photoButton.setTitle("📷", for: .normal)
+        photoButton.setTitle("📸", for: .highlighted)
+
         levelLabel.text = "\(Int(levelSlider.value))"
+
+        view.backgroundColor = UIColor.monVert
+        
     }
 
     private func configureSegmentedControl() {

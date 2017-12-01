@@ -8,6 +8,18 @@
 
 import UIKit
 
+
+extension UIColor {
+
+    static var monVert: UIColor {
+        return UIColor(red: 0.0, green: 0.5, blue: 0.4, alpha: 1)
+    }
+
+    func lowerColor() {
+        print("A lower color")
+    }
+}
+
 class SecondViewController: UIViewController {
 
     override func viewDidLoad() {
