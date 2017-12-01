@@ -63,6 +63,8 @@ class ViewController: UIViewController {
         manager.add(newPokemon)
 
         print(manager.list())
+
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func takePhoto(_ sender: Any) {
@@ -77,8 +79,6 @@ class ViewController: UIViewController {
         photoButton.setTitle("📸", for: .highlighted)
 
         levelLabel.text = "\(Int(levelSlider.value))"
-
-        view.backgroundColor = UIColor.monVert
         
     }
 
