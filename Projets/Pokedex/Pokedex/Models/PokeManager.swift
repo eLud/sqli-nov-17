@@ -23,6 +23,7 @@ class PokeManager {
     }
 
     func list() -> [Pokemon] {
+
         return pokemons
     }
 

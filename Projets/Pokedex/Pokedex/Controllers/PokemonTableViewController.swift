@@ -17,7 +17,19 @@ class PokemonTableViewController: UITableViewController {
 
 
         manager.add(Pokemon(name: "test", level: 0, type: .fire, captured: false))
+
+        let notCenter = NotificationCenter.default
+//        notCenter.addObserver(self, selector: #selector(reload), name: Notification.Name("modelUpdated"), object: nil)
+
+        notCenter.addObserver(forName: Notification.Name("modelUpdated"), object: nil, queue: OperationQueue.main) { (notif: Notification) in
+            self.tableView.reloadData()
+            print(notif.name)
+        }
     }
+
+//    @objc func reload() {
+//        self.tableView.reloadData()
+//    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -60,7 +60,7 @@ class ViewController: UIViewController {
 
         let newPokemon = Pokemon(name: name, level: level, type: type, captured: captured)
 
-        manager.add(newPokemon)
+        self.manager.add(newPokemon)
 
         print(manager.list())
 
